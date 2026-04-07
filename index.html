@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentinel</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <h1>Sentinel</h1>
+
+    <div class="main_container">
+        <h3>Total Budget </h3>
+        <input type="number" placeholder="e.g. $100.00" id="budget" required>
+        <h3>Cost per Request</h3>
+        <input type="number" placeholder="e.g. $10.00" id="cost" required> 
+        <h3>Request per sec</h3>
+        <input type="number" placeholder="e.g. 10" id="rps" required> 
+        <br><br>
+        <button id="calcBtn">Calculate Runway</button>
+
+        <div id="status">STATUS: OPTIMIZED</div>
+
+        <div id="result"></div>
+        <div id="ticker">$0.00</div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
