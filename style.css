@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #0f172a;
+    color: #e5e7eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Container */
+.main_container {
+    background: #111827;
+    padding: 30px;
+    border-radius: 16px;
+    width: 380px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Title */
+h1 {
+    position: absolute;
+    top: 30px;
+    font-size: 28px;
+    color: #38bdf8;
+}
+
+/* Labels */
+h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #9ca3af;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+    background-color: #020617;
+    color: #e5e7eb;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #38bdf8;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #0ea5e9;
+}
+
+/* Status */
+#status {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Result (time) */
+#result {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #a5f3fc;
+}
+
+/* Ticker (money) */
+#ticker {
+    margin-top: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #22c55e;
+}
+
+/* PANIC MODE */
+.panic {
+    animation: pulseRed 2s infinite;
+}
+
+@keyframes pulseRed {
+    0% {
+        background-color: #0f172a;
+    }
+    50% {
+        background-color: #3f1d1d;
+    }
+    100% {
+        background-color: #0f172a;
+    }
+}
+
+/* Risk Text Colors */
+.risk {
+    color: #ef4444;
+}
+
+.safe {
+    color: #22c55e;
+}
