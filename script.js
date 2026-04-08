@@ -25,8 +25,8 @@ button.addEventListener("click", function () {
     const burnRate = cost * rps;
 
     if (burnRate === 0) {
-        resultDiv.textContent = "No Spending Occurring";
-        tickerDiv.textContent = "";
+        resultDiv.textContent = "0 days 0 hours 0 minutes 0 seconds remaining";
+        tickerDiv.textContent = "$0.00";
         statusDiv.textContent = "STATUS: OPTIMIZED";
         document.body.classList.remove("panic");
         return;
@@ -34,7 +34,12 @@ button.addEventListener("click", function () {
 
     let currentBudget = budget;
 
-    tickerDiv.textContent = `$${currentBudget.toFixed(2)} remaining`;
+    const formatMoney = (value) => {
+        return `$${value.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        })}`;
+    };
 
     const updateTimeAndStatus = () => {
         const remainingSec = currentBudget / burnRate;
@@ -59,10 +64,14 @@ button.addEventListener("click", function () {
         }
     };
 
+    tickerDiv.textContent = `${formatMoney(currentBudget)} remaining`;
     updateTimeAndStatus();
 
+    const intervalTime = 100; 
+    const decrement = burnRate * (intervalTime / 1000);
+
     tickingInterval = setInterval(() => {
-        currentBudget -= burnRate;
+        currentBudget -= decrement;
 
         if (currentBudget <= 0) {
             currentBudget = 0;
@@ -76,9 +85,8 @@ button.addEventListener("click", function () {
             return;
         }
 
-        tickerDiv.textContent = `$${currentBudget.toFixed(2)} remaining`;
-
+        tickerDiv.textContent = `${formatMoney(currentBudget)} remaining`;
         updateTimeAndStatus();
 
-    }, 1000);
+    }, intervalTime);
 });
